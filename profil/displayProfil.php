@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include '../../database/db_rc2s.php';
+    include '../bd.php';
     $info=$bdd->query("SELECT prenom,nom,email,role,image FROM users WHERE email = '".htmlspecialchars($_SESSION['username'])."'");
 	$inf = $info->fetch();
 ?>

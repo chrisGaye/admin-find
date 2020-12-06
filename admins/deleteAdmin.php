@@ -3,7 +3,7 @@
 <?php include '../../database/db_rc2s.php' ; 
     //  Delete evaluation project
       $num_cat = $_GET["id"];
-      $query1 = $bdd -> query("DELETE FROM users WHERE id_user =$num_cat");    
+      $query1 = $bdd -> query("DELETE FROM admins WHERE id  =$num_cat");    
       $query1->execute();
 ?>
   

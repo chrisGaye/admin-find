@@ -1,15 +1,15 @@
 <?php 
 	session_start();
-	include '../../database/db_rc2s.php' ;
+	include '../bd.php' ;
 
-	// $nom   = $_POST['nom']    ;
-	// $prenom= $_POST['prenom']   ;
+	$nom   = $_POST['nom']    ;
+	$prenom= $_POST['prenom']   ;
 	$email = $_POST['email']  ;
 	$pwd   = $_POST['role']    ;
   $password= $_POST['password'] ;
   $pass = password_hash($password, PASSWORD_DEFAULT);
-  $req = $bdd->prepare("INSERT INTO users( email, role, password) VALUES (?,?,?)");
-  $req -> execute(array($email, $pwd, $pass));
+  $req = $bdd->prepare("INSERT INTO admins ( prenom, nom, email, role, password) VALUES (?, ?, ?, ?, ?)");
+  $req -> execute(array($prenom, $nom,  $email, $pwd, $pass));
 
 
 ?>	
@@ -30,7 +30,7 @@
         {
             Swal.fire({
                         icon: 'success',
-                        title: 'Admin Disponible ! <br>',
+                        title: 'Enregistré avec succès ! <br>',
                         showConfirmButton: false,
                         timer: 5000,
                         background: '#fff url(new-user.gif)'

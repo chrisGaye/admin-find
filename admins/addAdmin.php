@@ -23,7 +23,7 @@
 	<form method="post" action="./saveAdmin.php">
 		<div class="container" style="margin-top: 10%;">
 			<div class="row">
-				  <!-- <div class="col-6">
+				  <div class="col-6">
 				  		<div class="md-form">
 				  				<i class="fas fa-signature prefix"></i>
 				  				<input type="text" name="prenom" id="name" class="form-control" required="">
@@ -36,7 +36,7 @@
 				  			  <input type="text" name="nom" id="pname" class="form-control" required="">
 				  			  <label for="pname">Nom ...</label>
 				  		</div>
-				  </div> -->
+				  </div>
 				   <div class="col-6">
 				  		<div class="md-form">
 				  			  <i class="fas fa-user prefix"></i>
@@ -49,7 +49,7 @@
 				  			  <i class="fas fa-edit prefix"></i>
 		                         <div style="padding-left:50px">
 									<select class="browser-default custom-select" name="role">
-										<option disabled selected> Choisir Role</option>
+										<option disabled selected>Choisir Role</option>
 										<option value="admin">Admin</option>
 										<option value="super_admin">Super Admin</option>
 									</select>

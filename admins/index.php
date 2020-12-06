@@ -71,14 +71,14 @@
                     <td><?php echo $rep['email']; ?></td> 
                     <td><?php echo $rep['role']; ?></td>
                     <td>       
-                     <a href="./displayAdmin.php?id=<?php echo $rep['id_user']; ?>" style="color: white"><button type="submit" class="">Voir profil</button></a>                      
+                     <a href="./displayAdmin.php?id=<?php echo $rep['id']; ?>" style="color: white"><button type="submit" class="">Voir profil</button></a>                      
                     </td> 
                     <td>       
-                     <a href="updateAdmin.php?id=<?php echo $rep['id_user']; ?>" style="color: white"><button type="submit" class="">modifier</button></a>                      
+                     <a href="updateAdmin.php?id=<?php echo $rep['id']; ?>" style="color: white"><button type="submit" class="">modifier</button></a>                      
                     </td>
                     <td>
                     <!-- <a href="/delete" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> -->
-                    <a href="deleteAdmin.php?id=<?php echo $rep['id_user']; ?>" style="color: white" ><button type="submit" class="text-danger">supprimer</button></a>
+                    <a href="deleteAdmin.php?id=<?php echo $rep['id']; ?>" style="color: white" ><button type="submit" class="text-danger">supprimer</button></a>
                      </td>
                 </tr><?php   $cpt++; } ?>
                 </tbody>
