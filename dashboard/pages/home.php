@@ -39,7 +39,7 @@
 		    <br>
 		   <div class="row d-flex justify-content-center">
 		   		<div>
-		   			<img src="../home.webp" id="home-img" class="mobile-aff" style="display: none;width: 380px;height: 380px;">
+		   			<img src="../../images/logo.jpeg" id="home-img" class="rounded-circle" class="mobile-aff" style="display: none;width: 380px;height: 380px;">
 		   		</div>
 		   </div>
        <br>
@@ -54,14 +54,7 @@
 		   		</div>
 		   </div>
 	</div>
-    <!-- <footer class="main-footer fixed-bottom"> -->
-    <!-- <sapn class="fixed-bottom"> -->
-        <!-- Copyright &copy; <strong>Cellule Digitale RC2S</strong> 
-        <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 1.0
-        </div> -->
-    <!-- </span> -->
-  <!-- </footer> -->
+  
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript">

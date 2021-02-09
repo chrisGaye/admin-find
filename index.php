@@ -15,7 +15,7 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard RC2S</title>
+  <title>Find</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -135,13 +135,13 @@ session_start();
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview" onclick="AlterPage('./vendeur/')" style="font-size:25px;padding-bottom:30px">
+          <li class="nav-item has-treeview" onclick="AlterPage('./boutique/')" style="font-size:25px;padding-bottom:30px">
             <a href="#" class="nav-link" id="element">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                VENDEURS        
+                BOUTIQUE        
               </p>
-            </a>
+            </a>   
           </li>
          
           <li class="nav-item has-treeview" onclick="AlterPage('./client/')" style="font-size:25px;padding-bottom:30px">
@@ -170,45 +170,40 @@ session_start();
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
+      
     </div>
-    <!-- /.sidebar -->
+    
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
+ 
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
+          </div>
           
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+        </div>
+      </div>
     </div>
-    <!-- /.content-header -->
-     
-    <!-- Main content -->
+    
     <section class="content" style="
 -moz-border-radius: 20px;
 border-radius: 15px;
 overflow: hidden;">
        <iframe src="./dashboard/pages/home.php" id="framespec" style="width: 100%;border: unset;height: 580px"></iframe>
     </section>
-    <!-- /.content -->
+    
   </div>
-  <!-- /.content-wrapper -->
- 
 
-  <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+   
   </aside>
-  <!-- /.control-sidebar -->
+  
 </div>
-<!-- ./wrapper -->
+
 <style type="text/css">
 	.element
 	{
@@ -246,7 +241,6 @@ overflow: hidden;">
 			 {
 			 	document.getElementById('framespec').src = argument ;
 			 }
-
 </script>
 <!-- jQuery -->
 <script src="./dashboard/plugins/jquery/jquery.min.js"></script>
