@@ -147,11 +147,11 @@ if(
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview" onclick="AlterPage('./produit/')" style="font-size:25px;padding-bottom:30px">
+          <li class="nav-item has-treeview" onclick="AlterPage('./annonces/')" style="font-size:25px;padding-bottom:30px">
              <a href="#" class="nav-link" id="element">
              <i class="fas fa-comments"></i>
                 <p>
-                   PRODUITS
+                   ANNONCES   
                 </p>
              </a>
           </li>
@@ -159,7 +159,7 @@ if(
              <a href="#" class="nav-link" id="element">
               <i class="fas fa-users"></i>
                 <p>
-                   ADMINISTREURS
+                   ADMINISTREURS   
                 </p>
              </a>
           </li>
@@ -234,7 +234,7 @@ overflow: hidden;">
 
   function AlterPage(argument) 
 			 {
-			 	document.getElementById('framespec').src = argument ;
+			  	document.getElementById('framespec').src = argument ;
 			 }
 </script>
 <!-- jQuery -->

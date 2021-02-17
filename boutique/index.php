@@ -57,13 +57,6 @@
 		color: white;
 		font-weight: bold;
   	}
-	#head_table{
-		background-color: #a3b6ca;
-		
-	}
-	#title_tab{
-		color: black;
-	}
   </style>
 </head>
 <body>
@@ -73,7 +66,7 @@
 		<br>
 		<div class="row d-flex justify-content-center">
 			   <div class="col-auto" style="font-weight: bold;text-align: center;">
-			   		 <i class="fas fa-pen-alt" ></i>&nbsp;&nbsp;GESTION DES COMMANDES 
+			   		 <i class="fas fa-pen-alt" ></i>&nbsp;&nbsp;GESTION DES BOUTIQUES 
 			   </div>
 		</div>
 		<br>
@@ -93,19 +86,15 @@
 			  </div>
 		</div>
 		
-		<div class="row justify-content-start">
+		<div class="row">
 			<div class="col-auto">
 				  <table class="table table-responsive">
 				  	<thead>
-				  	<tr id="head_table">
-				  		  <th width="70px" class="border border-0" id="title_tab">#</th>
-						  <th width="300px" class="border border-0"><span id="title_tab">Numéro commande</span></th>
-				  		  <th width="150px" class="border border-0"><span id="title_tab"> Date</span></th>
-							<th width="120px" class="border border-0"><span id="title_tab">Produit</span></th>
-				  		  <th width="120px" class="border border-0"><span id="title_tab">Boutique</span></th> 
-						 
-				  		  <th width="110px" class="border border-0"><span id="title_tab">Etat</span></th>
-        
+				  	<tr>
+				  		  <th width="70px" class="border border-0">#</th>
+						  <th width="300px" class="border border-0">Nom de la boutique</th>
+				  		  <th width="300px" class="border border-0">Adresse</th>
+				  		  <th width="250px" class="border border-0">Vendeur</th> 
 				  		  <th width="300px" class="border border-0"></th>
 				   </tr>
 				   </thead>
@@ -119,7 +108,7 @@
 				   ?>
 				   			<tr>
 				   				<td><?php echo $i; ?></td>
-						   		<td><?php echo "12655"//$row[1]; ?></td>
+						   		<td><?php echo "DamesoStore"//$row[1]; ?></td>
 						   		<td>
 									   <?php 
 									    //    $cat = ($query->fetch())[0] ;
@@ -128,71 +117,16 @@
 										// 	}else {
 										// 		echo $cat;
 										// 	}
-										 echo "2021-12-12"	;
+										 echo "Dakar"	;
 						   			?>
 						   		</td>
 						   		<td >
-						   			<?php echo "Chaussure"; //$row[3];?>
+						   			<?php echo "Gaye Amadou"; //$row[3];?>
 						   		</td>
 
-								<td >
-						   			<?php echo "Amadou"; //$row[3];?>
-						   		</td>
-
-								<td>
-						   			<?php echo "En attente"; //$row[3];?>
-						   		</td>
-
-						   		<td> 
-								      <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-danger">Voir détail</button></a> &nbsp;&nbsp;&nbsp;&nbsp; 
-						   			 | &nbsp;&nbsp;&nbsp;&nbsp;
-										<a href="#updateArticle?modify=<?php //echo $row[0]; ?>" onclick="alert('Modification test')" class="text-secondary">Modifier</button></a>
-						   	    </td>	
-								   <!-- <a data-bs-toggle="modal" data-bs-target="#exampleModal<?php //echo $row[0]; ?>" class="deep-orange-text">Supprimer</a>
-                                      <?php  $id_row = $row[0]; ?> -->
-								   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-									 <div class="modal-dialog">
-										<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel"><b> Détails de la Commande n°234</b></h5>
-											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-										</div>
-										<div class="modal-body">
-											<!-- Détails de la commande  -->
-											<div class="container">
-											    <div class="row">
-												    <div class="col-md-6">
-														<ul>
-															<li> Date : 2021-12-02 12:27:12</li>
-															<li> Produit : Chaussure</li>
-															<li> Quantité : 5</li>
-															<li> Prix unitaire : 2500 f</li>
-															<li> Prix Total : 10000 f</li>
-															<li> Boutique : Find Store</li>
-														</ul>
-													</div>
-
-													<div class="col-md-6">
-												     	<ul>
-														    
-															<li>Nom du client : Amadou GAYE</li>
-															<li>Adresse : Dakar</li>
-															<li>Boite postale : BP5032</li>
-															<li>Téléphone : 77653322</li>
-															<li>E-mail : 77653322</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-											
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
-											<button type="button" onclick="window.location='./deleteClasse.php?ID=<?php echo $id_row; ?>'" class="btn btn-success">Confimer</button>
-									 	</div>  
-								     	 </div>
-							     	  </div>
-                                  </div>
+						   		<td> <a href="#updateArticle?modify=<?php //echo $row[0]; ?>" onclick="alert('Voir les détails de la boutique')" class="text-secondary">Voir détail</button></a>&nbsp;&nbsp;&nbsp;&nbsp; 
+						   			 | &nbsp;&nbsp;&nbsp;&nbsp;   <a href="#deleteArticle.php?id=<?php // echo $row[0]; ?>" onclick="alert('Activation')" class="text-danger">Activer</button></a></td>
+						   	
 				  			 </tr>
 				   <?php 
 				   			//$i++;
@@ -204,8 +138,6 @@
 		</div>
 	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
   $("#search").on("keyup", function() {

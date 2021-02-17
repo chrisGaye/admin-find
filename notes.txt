@@ -1,0 +1,20 @@
+1-Commandes
+-Modifier létat d'une commande  (Design Ok)
+-Voir détail 
+
+2-Boutique
+-Afficher liste des boutiques (Nom de la boutique, ) Ok Design 
+-voir détail 
+-Activer/ désactiver une boutique
+-Afficher les produits de la boutique par catégories
+-Modifier mot de passe de vendeur
+
+3-Clients
+-Liste des clients
+
+4-Annonces : titre + texte + image
+-CRUD annonce
+-Annonce pour un produit de boutique
+
+
+

@@ -1,9 +1,9 @@
 <?php 
 	session_start() ;
-	include '../bd.php';
+	//include '../../data.php';
 
-	// $rows = ''				 ;
-	// $val  = $_REQUEST['val'] ;
+	$rows = ''				 ;
+	$val  = $_REQUEST['val'] ;
 	// var_dump($val);
 
 	// if (!isset($_REQUEST['val'])) 
@@ -34,7 +34,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>COMMANDES</title>
+	<title>ARTICLES</title>
   <link rel="icon" type="image/png" href="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="jep">
@@ -61,26 +61,31 @@
 </head>
 <body>
 	
-	 <?php include '../bd.php'; ?>
+	 <?php // include '../../database/db_rc2s.php'; ?>
 	<div class="container">
 		<br>
-		<div class="row d-flex justify-content-center">
-			   <div class="col-auto" style="font-weight: bold;text-align: center;">
-			   		 <i class="fas fa-pen-alt" ></i>&nbsp;&nbsp;GESTION DE LA CLIENTELE 
+		<div class="row d-flex justify-content-start">
+			   <div class="col-auto" style="font-weight: bold;">
+			   		 <i class="fas fa-pen-alt"></i>&nbsp;&nbsp;Création, Modification et Suppression des articles
 			   </div>
 		</div>
 		<br>
-
-		<!-- <div class="row">
+		<div class="row">
+			  <div class="col-auto d-flex justify-content-start">
+			  		<a href="./addArticle.php"><button type="button" class="btn btn-outline-secondary waves-effect rounded-pill">Ajouter un article</button></a>
+			  </div>
+		</div>
+		<br>
+		<div class="row">
 			  <div class="col-12 d-flex justify-content-start">
 			  		<a href="./article.php?val=att" style="color: black;font-weight: bold;"><button class="btn rounded-pill typeart <?php echo $thisok ; ?>">EN ATTENTE</button></a>
 			  		<a href="./article.php?val=online" style="color: black;font-weight: bold;"><button class="btn rounded-pill typeart <?php echo $thisok2; ?>">EN LIGNE</button></a>
 			  </div>
-		</div> -->
+		</div>
 		<div class="row d-flex justify-content-end">
 			  <div class="col-auto">
 			  		<div class="md-form">
-				  		<input type="text" id="search" class="form-control" size="35px">
+				  		<input type="text" id="search" class="form-control">
 				  		<label for="search">Rechercher ...</label>
 			  		</div>
 			  </div>
@@ -92,9 +97,9 @@
 				  	<thead>
 				  	<tr>
 				  		  <th width="70px" class="border border-0">#</th>
-						  <th width="300px" class="border border-0">Prénom et Nom</th>
-				  		  <th width="300px" class="border border-0">Localisation</th>
-				  		  <th width="180px" class="border border-0">Contact</th> 
+				  		  <th width="300px" class="border border-0">TITRE</th>
+				  		  <th width="120px" class="border border-0">CATEGORIE</th>
+				  		  <th width="110px" class="border border-0">DATE</th>
 				  		  <th width="300px" class="border border-0"></th>
 				   </tr>
 				   </thead>
@@ -103,36 +108,52 @@
                            $i=1;
                         
 				   		// foreach ($rows as $row) 
-				   		// {
-                        // $query = $bdd->query("SELECT nom_cat FROM categories WHERE id_cat='".$row[2]."'");
+				   		{
+                        //  $query = $bdd->query("SELECT nom_cat FROM categories WHERE id_cat='".$row[2]."'");
 				   ?>
 				   			<tr>
 				   				<td><?php echo $i; ?></td>
-						   		<td><?php echo "Amadou Gaye"//$row[1]; ?></td>
+						   		<td><?php echo ""; ?></td>
 						   		<td>
 									   <?php 
-									    //    $cat = ($query->fetch())[0] ;
-									    //     if ($cat == null) {
-										// 		echo "--";
-										// 	}else {
-										// 		echo $cat;
-										// 	}
-										 echo "Dakar"	;
+									       $cat = ($query->fetch())[0] ;
+									        if ($cat == null) {
+												echo "--";
+											}else {
+												echo $cat;
+											}
+        
+	
 						   			?>
 						   		</td>
-						   		<td >
-						   			<?php echo "7766546666"; //$row[3];?>
+						   		<td class="text-primary">
+						   			<?php echo $row[3];?>
 						   		</td>
-
-						   		<td>
-								   <a href="#deleteArticle.php?id=<?php // echo $row[0]; ?>" onclick="alert('Activation')" class="text-secondary">Activer</button></a>  &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-								   <a href="#deleteArticle.php?id=<?php // echo $row[0]; ?>" onclick="alert('Activation')" class="text-primary">Modifier</button></a>
-								</td>
-						   	
+						   		<td><a href="./updateArticle?modify=<?php echo $row[0]; ?>&amp;type=<?php if(!isset($_REQUEST['val'])) echo 'att';else echo $val; ?>">Modifier</button></a> 
+						   			| 
+                                                       
+                                     <?php  if ($val !='online') 
+						   			{ ?>
+						   		<a href="./publishProject.php?id=<?php echo $row[0]; ?>&amp;type=<?php if(!isset($_REQUEST['val'])) echo 'att';else echo $val; ?>" class="deep-orange-text">Publier</button></a> 
+						   		<?php  
+						   			}
+						   			if ($val=='att' || $val=='online' || !isset($_REQUEST['val'])) 
+						   			{
+						   		?>	
+						   			 |   <a href="deleteArticle.php?id=<?php echo $row[0]; ?>" class="text-danger">Supprimer</button></a></td>
+						   		<?php  
+						   			}
+						   			if ($val=='online') 
+						   			{   
+						   		?>	
+						   			 <!-- | <a href="./../article.php?article=<&amp;visual=yes" class="text-danger">Visualiser</a></td> -->
+						   		<?php 
+						   			}
+						   		?>
 				  			 </tr>
 				   <?php 
-				   			//$i++;
-				   		//}
+				   			$i++;
+				   		}
 				   ?>	
 				  </tbody>			   
 				  </table>
