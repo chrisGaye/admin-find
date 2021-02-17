@@ -3,10 +3,15 @@
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
-// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-//     header("location: ./auth/login.php");
-//     exit;
-// }
+if(
+  isset($_SESSION["token"]) && !empty($_SESSION["token"]) &&
+  isset($_SESSION["user"]) && !empty($_SESSION["admin_username"])
+){
+  $email = $_SESSION["user"]["email"];
+}else {
+  header("location: ./auth/login.php");
+  exit;
+}
 
 ?>
 
@@ -74,17 +79,7 @@ session_start();
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             
             <b><?php 
-                include('./bd.php');
-                //$info=$bdd->query("SELECT prenom,nom,email FROM admins WHERE email = '".htmlspecialchars($_SESSION['username'])."'");
-                //  echo htmlspecialchars($_SESSION["username"]); 
-                echo "Amadou GAYE";
-              // $val =  $info->fetch();
-              // if ($val[0] == null) {
-                //echo $val[2];
-              // }else {
-                //echo $val[0]." ".$val[1]." "; 
-              // }
-              
+                echo $email;
             ?></b>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

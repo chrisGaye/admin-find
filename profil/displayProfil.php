@@ -1,8 +1,17 @@
 <?php 
     session_start();
-    include '../bd.php';
-    $info=$bdd->query("SELECT prenom,nom,email,role,image FROM users WHERE email = '".htmlspecialchars($_SESSION['username'])."'");
-	$inf = $info->fetch();
+	$user = null;
+	if(
+		isset($_SESSION["token"]) && !empty($_SESSION["token"]) &&
+		isset($_SESSION["user"]) && !empty($_SESSION["admin_username"])
+	  ){
+		$user = $_SESSION["user"];
+		var_dump($_SESSION["user"]);
+		die();
+	  }else {
+		header("location: ./auth/login.php");
+		exit;
+	  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,21 +39,15 @@
 				  				<i class="fas fa-signature prefix"></i>
                                   
 				  				<!-- <input type="text" name="prenom" id="name" class="form-control" required="" value=""> -->
-				  				<label for="name">Prénom : <?php echo $inf[0]; ?></label>
+				  				<label for="name">login : <?php echo $user["login"]; ?></label>
 				  		</div>
 				  </div>
-				   <div class="col-6">
-				  		<div class="md-form">
-				  			  <i class="fas fa-address-book prefix"></i>
-				  			  <!-- <input type="text" name="nom" id="pname" class="form-control" required=""> -->
-				  			  <label for="pname">Nom : <?php echo $inf[1]; ?></label>
-				  		</div>
-				  </div>
+
 				   <div class="col-6">
 				  		<div class="md-form">
 				  			  <i class="fas fa-user prefix"></i>
 				  			  <!-- <input type="text" name="email" id="login" class="form-control" required=""> -->
-				  			  <label for="login">Email : <?php echo $inf[2]; ?></label>
+				  			  <label for="login">Email : <?php echo $user["email"]; ?></label>
 				  		</div>
 				  </div>
 				   <div class="col-6">
